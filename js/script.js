@@ -10,15 +10,11 @@ const resBox = document.querySelector(".search-result");
 
 // if user press any key and release
 inputBox.onkeyup = (e)=>{
+    resBox.classList.remove("active");
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
     if(userData){
-        icon.onclick = ()=>{
-            // webLink = `https://www.google.com/search?q=${userData}`;
-            // linkTag.setAttribute("href", webLink);
-            // linkTag.click();
-            resBox.querySelector("p").innerHTML = ingredients[userData];
-        }
+        icon.onclick = ()=>showResults(userData);
         emptyArray = suggestions.filter((data)=>{
             //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
@@ -42,14 +38,7 @@ inputBox.onkeyup = (e)=>{
 function select(element){
     let selectData = element.textContent;
     inputBox.value = selectData;
-    icon.onclick = ()=>{
-        ingredientStr = ingredients[selectData];
-        ingredientStr = ingredientStr.replace(
-                        /MILK|EGGS|EGG|PEANUTS|PEANUT|SOYBEANS|SOYBEAN|SOY|WHEAT|TREE|WALNUTS|PECANS|CASHEWS|ALMONDS|PISTACHIOS|HAZELNUTS|NUTS|NUT|SHELLFISH|SHRIMP|CRAB|LOBSTER|CLAMS|CLAM|MUSSELS|OYSTERS|SCALLOPS|FISH|SALMON|TUNA|HALIBUT/gi, 
-                       function(match){ return "<b>" + match + "</b>"; }
-                       );
-        resBox.querySelector("p").innerHTML = ingredientStr;
-    }
+    icon.onclick = ()=>showResults(selectData);
     searchWrapper.classList.remove("active");
 }
 
@@ -62,4 +51,20 @@ function showSuggestions(list){
       listData = list.join('');
     }
     suggBox.innerHTML = listData;
+}
+
+function showResults(selectData){
+    resBox.classList.add("active");
+    ingredientStr = ingredients[selectData];
+    if(typeof ingredientStr !== 'undefined') {
+        ingredientStr = ingredientStr.replace(
+            /(MILK|EGG|PEANUT|SOYBEAN|SOY|WHEAT|TREE|WALNUT|PECAN|CASHEW|ALMOND|PISTACHIO|HAZELNUT|NUT|SHELLFISH|SHRIMP|CRAB|LOBSTER|CLAM|MUSSEL|OYSTER|SCALLOP|FISH|SALMON|TUNA|HALIBUT)(s|es)?/gi, 
+            function(match){ return "<b>" + match + "</b>"; }
+        );
+        resBox.querySelector("h2").innerHTML = "Ingredients";
+        resBox.querySelector("p").innerHTML  = ingredientStr;
+    } else {
+        resBox.querySelector("h2").innerHTML = "Item Not Found";
+        resBox.querySelector("p").innerHTML  = "Please try searching again for a valid food product.";
+    }
 }
