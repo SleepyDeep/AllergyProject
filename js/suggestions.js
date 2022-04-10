@@ -1,3 +1,4 @@
+/*
 let suggestions = [
     "Channel",
     "CodingLab",
@@ -26,3 +27,10 @@ let suggestions = [
     "What does HTML stands for?",
     "What does CSS stands for?",
 ];
+*/
+
+let suggestions;
+$.getJSON('../JSON/FoodSuggestions.json')
+.done(function (data) {
+myList = data;
+});
