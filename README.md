@@ -1,6 +1,6 @@
 # SnackHack
  
- Website: https://sleepydeep.github.io/AllergyProject/
+ Website: https://sleepydeep.github.io/SnackHack/
  
  Authors: Anudeep Alam, Kyeling Ong, Siddish Sankar
  
