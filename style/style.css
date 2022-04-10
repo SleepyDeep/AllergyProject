@@ -9,13 +9,22 @@
 h1 {
   color: rgb(0, 0, 0);
   margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
   font-size: 45px;
   text-shadow: 0 0 2px white;
+  backdrop-filter: blur(0.75px);
+  width: fit-content;
+  border-radius: 25%;
 }
 
 body{
-  background: #5ccb72;
+  background-image: url("../imgs/food-bg.webp");
+  background-color: #26643f;
+  /* background-color: #5ccb72; */
   padding: 0 20px;
+  background-blend-mode: screen;
 }
 
 .container {
@@ -26,7 +35,11 @@ body{
 }
 
 .logo{
-  text-align: center;
+  display: none;
+  margin: auto;
+  backdrop-filter: blur(2px);
+  width: fit-content;
+  border-radius: 50%;
 }
 
 ::selection{
