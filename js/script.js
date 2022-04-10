@@ -1,4 +1,5 @@
 // getting all required elements
+// SOURCE: https://dev.to/codingnepal/search-bar-with-autocomplete-search-suggestions-in-javascript-32dn
 const searchWrapper = document.querySelector(".search-input");
 const inputBox = searchWrapper.querySelector("input");
 const suggBox = searchWrapper.querySelector(".autocom-box");
