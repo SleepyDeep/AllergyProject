@@ -58,7 +58,7 @@ function showResults(selectData){
     ingredientStr = ingredients[selectData];
     if(typeof ingredientStr !== 'undefined') {
         ingredientStr = ingredientStr.replace(
-            /(MILK|EGG|PEANUT|SOYBEAN|SOY|WHEAT|TREE|WALNUT|PECAN|CASHEW|ALMOND|PISTACHIO|HAZELNUT|NUT|SHELLFISH|SHRIMP|CRAB|LOBSTER|CLAM|MUSSEL|OYSTER|SCALLOP|FISH|SALMON|TUNA|HALIBUT)(s|es)?/gi, 
+            /(MILK|EGG|PEANUT|SOYBEAN|SOY|WHEAT|WALNUT|PECAN|CASHEW|ALMOND|PISTACHIO|HAZELNUT|NUTS|SHELLFISH|SHRIMP|CRAB|LOBSTER|CLAM|MUSSEL|OYSTER|SCALLOP|FISH|SALMON|TUNA|HALIBUT)(s|es)?/gi, 
             function(match){ return "<b>" + match + "</b>"; }
         );
         resBox.querySelector("h2").innerHTML = "Ingredients";
