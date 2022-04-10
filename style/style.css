@@ -6,14 +6,36 @@
   font-family: 'Poppins', sans-serif;
 }
 
+h1 {
+  color: rgb(0, 0, 0);
+  margin-top: 100px;
+  font-size: 50px;
+  text-shadow: 0 0 2px white;
+}
+
 body{
-  background: #644bff;
+  background: #5ccb72;
   padding: 0 20px;
+}
+
+.container {
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1000px;
+  text-align: center;
 }
 
 ::selection{
   color: #fff;
   background: #664AFF;
+}
+
+.search-result{
+  color: rgb(0, 0, 0);
+  margin-top: 50px;
+  border-radius: 25px;
+  padding: 8px 12px;
+  border: 2px solid #fff;
 }
 
 .wrapper{
