@@ -13,11 +13,12 @@ inputBox.onkeyup = (e)=>{
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
     if(userData){
-        // icon.onclick = ()=>{
-        //     webLink = `https://www.google.com/search?q=${userData}`;
-        //     linkTag.setAttribute("href", webLink);
-        //     linkTag.click();
-        // }
+        icon.onclick = ()=>{
+            // webLink = `https://www.google.com/search?q=${userData}`;
+            // linkTag.setAttribute("href", webLink);
+            // linkTag.click();
+            resBox.querySelector("p").innerHTML = ingredients[userData];
+        }
         emptyArray = suggestions.filter((data)=>{
             //filtering array value and user characters to lowercase and return only those words which are start with user enetered chars
             return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
@@ -42,10 +43,12 @@ function select(element){
     let selectData = element.textContent;
     inputBox.value = selectData;
     icon.onclick = ()=>{
-        // webLink = `https://www.google.com/search?q=${selectData}`;
-        // linkTag.setAttribute("href", webLink);
-        // linkTag.click();
-        resBox.querySelector("p").innerHTML = ingredients[selectData];
+        ingredientStr = ingredients[selectData];
+        ingredientStr = ingredientStr.replace(
+                        /MILK|EGGS|EGG|PEANUTS|PEANUT|SOYBEANS|SOYBEAN|SOY|WHEAT|TREE|WALNUTS|PECANS|CASHEWS|ALMONDS|PISTACHIOS|HAZELNUTS|NUTS|NUT|SHELLFISH|SHRIMP|CRAB|LOBSTER|CLAMS|CLAM|MUSSELS|OYSTERS|SCALLOPS|FISH|SALMON|TUNA|HALIBUT/gi, 
+                       function(match){ return "<b>" + match + "</b>"; }
+                       );
+        resBox.querySelector("p").innerHTML = ingredientStr;
     }
     searchWrapper.classList.remove("active");
 }
