@@ -4,6 +4,7 @@ ingred = pd.read_csv('../Data/branded_food.csv')
 foods  = pd.read_csv('../Data/food.csv')
 #data   = pd.concat([foods['fdc_id'], foods['description'], ingred['ingredients']], axis=1)
 data   = pd.concat([foods['description'], ingred['ingredients']], axis=1)
+data.drop_duplicates(subset='description', keep=False,inplace=True)
 data = data.dropna()
 foodList = data['description'].tolist()
 
